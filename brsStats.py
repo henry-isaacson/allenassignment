@@ -36,7 +36,6 @@ def data_sort(signals, annotations, structures):
     rawIDs = structures['id'].tolist() #stores corresponding region ID strings in list
     index = 0
     for treePath in rawData: #for each structure ID string
-        print(index)
         treeLevel = str(treePath.count('/') - 2) #splice structure ID path for "/"
         signal = signal_calculator(rawIDs[index]) #calculate signal for structure
         if treeLevel in sortedDataDict.keys():
@@ -45,7 +44,6 @@ def data_sort(signals, annotations, structures):
         else:
             sortedDataDict[treeLevel] = [signal] #create new key value pair if key is not present
         index += 1
-    print("done with data sort")
     return sortedDataDict
 
 # gets summed signal per region ID
